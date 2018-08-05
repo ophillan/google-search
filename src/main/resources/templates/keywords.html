@@ -1,0 +1,28 @@
+<form class="form-group" ng-submit="addScheduledKeyword()">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Lisa otsingusõna" ng-model="newKeyword"/>
+        <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Lisa</button>
+                    </span>
+    </div>
+</form>
+
+<div ng-init="getScheduledKeywords()" style="padding-top: 15px;">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Otsingusõna</th>
+            <th style="max-width: 25px;">Kustuta</th>
+        </tr>
+        </thead>
+
+        <tr ng-repeat="keyword in keywords">
+            <td><p ng-bind-html="keyword"></p></td>
+            <td style="max-width: 25px;">
+                <a ng-click="deleteScheduledKeyword(keyword)">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>

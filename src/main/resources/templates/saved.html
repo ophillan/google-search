@@ -1,0 +1,48 @@
+<!--
+<div ng-init="getRecentSearches()">
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Scrollable Menu
+            <span class="caret"></span></button>
+        <ul class="dropdown-menu scrollable-menu" role="menu">
+            <li ng-repeat="date in searchDates" style="display: inline;">
+                <button ng-click="showSearchesForDate(date)"
+                        type="button"
+                        class="btn btn-primary">{{date}}
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
+-->
+
+
+<div>
+    <div ng-init="getScheduledKeywords()">
+        <div class="row">
+            <div class="col-sm-2" ng-repeat="keyword in keywords">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><a ng-click="openKeywordQueries('query-details', keyword)">{{keyword}}</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="showTable" style="padding-top: 15px;">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Pealkiri</th>
+                <th>Sisu</th>
+                <th>Link</th>
+                <th>Google'i link</th>
+            </tr>
+            </thead>
+            <tr ng-repeat="search in activeSearches track by search.cacheId">
+                <td><p ng-bind-html="search.title"></p></td>
+                <td><p ng-bind-html="search.description"></p></td>
+                <td><a ng-href="{{search.link}}">{{search.link}}</a></td>
+                <td>Nil</td>
+            </tr>
+        </table>
+    </div>
+</div>

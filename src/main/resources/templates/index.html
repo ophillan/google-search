@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<head xmlns:th="http://www.thymeleaf.org">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Google'i otsingu rakendus</title>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-sanitize.min.js"></script>
+    <script th:src="@{/js/index.js}"></script>
+    <script th:src="@{/js/landing.js}"></script>
+    <script th:src="@{/js/saved.js}"></script>
+    <script th:src="@{/js/keywords.js}"></script>
+    <script th:src="@{/js/query-details.js}"></script>
+    <script th:src="@{/js/util.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/app.css}"/>
+
+    <style>
+        .setWidth {
+            max-width: 100px;
+        }
+
+        .concat a {
+            overflow: hidden;
+            width: inherit;
+            white-space: pre-line;
+            overflow-wrap: break-word
+        }
+    </style>
+</head>
+
+<body ng-app="mainApp">
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Google'i otsingu rakendus</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="#">Manuaalne otsing</a></li>
+            <li><a href="#!saved">Automaatne otsing</a></li>
+            <li><a href="#!keywords">Otsingusõnade haldus</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row col-sm-10 col-sm-offset-1">
+        <ng-view></ng-view>
+    </div>
+</div>
+</body>

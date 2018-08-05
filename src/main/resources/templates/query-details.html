@@ -1,0 +1,45 @@
+<div class="panel-group" id="accordion" ng-init="getResultsByKeyword()">
+    <div ng-repeat="date in searchDates">
+
+            <div class="panel panel-default collapsed" id="panel{{date.id}}">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a ng-click="collapse(date.id)">{{date.date | date: 'dd.MM.yyyy'}}</a></h4>
+                </div>
+                <div id="collapse{{date.id}}" class="panel-collapse collapse collapsed">
+                    <div class="panel-body">
+                        {{result}}
+                    </div>
+                </div>
+            </div>
+
+    </div>
+</div>
+
+<table class="table table-sm">
+    <thead>
+    <tr>
+        <th class="col-sm-1">Kopeeri</th>
+        <th class="col-sm-2">Pealkiri</th>
+        <th class="col-sm-4">Sisu</th>
+        <th class="col-sm-2">Link</th>
+        <th class="col-sm-3">Google'i link</th>
+    </tr>
+    </thead>
+    <tr ng-repeat="result in searchResults">
+        <td>
+            <div class="round">
+                <input class="form-check-input round"
+                       type="checkbox"
+                       ng-model="bla"
+                       ng-change="pushToClipboard(result.ctUrl)"
+                       value=""
+                       id="{{result.ctUrl}}"/>
+                <label for="{{result.ctUrl}}"></label>
+            </div>
+        </td>
+        <td><p ng-bind-html="result.title"></p></td>
+        <td><p ng-bind-html="result.snippet"></p></td>
+        <td class="setWidth concat"><a ng-href="{{result.link}}">{{result.link}}</a></td>
+        <td class="setWidth concat"><a ng-href="{{result.ctUrl}}">{{result.ctUrl}}</a></td>
+    </tr>
+</table>
